@@ -205,7 +205,7 @@ async getWeather(){
    
 
         return (
-            <div>
+            <div className="five-day">
                 <DisplayDayData dayData={this.state.day1} />
                 <DisplayDayData dayData={this.state.day2} />
                 <DisplayDayData dayData={this.state.day3} />
