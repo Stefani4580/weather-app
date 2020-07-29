@@ -72,11 +72,11 @@ async getWeather(){
 
 
     //Parse to get data for each date
-      let day1 = weatherData.list.slice(0,8);
-      let day2 = weatherData.list.slice(8,16);
-      let day3 = weatherData.list.slice(16,24);
-      let day4 = weatherData.list.slice(24,32);
-      let day5 = weatherData.list.slice(32,41);
+      let day1 = weatherData.list.slice(0,1);
+      let day2 = weatherData.list.slice(8,9);
+      let day3 = weatherData.list.slice(16,17);
+      let day4 = weatherData.list.slice(24,25);
+      let day5 = weatherData.list.slice(32,33);
 
     // Psuedocode
     // Do this for each day to get the High and the Low

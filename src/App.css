@@ -41,6 +41,10 @@
   font-size: 50pt;
 }
 
+.title {
+  text-align: center;
+}
+
 .lineup {
   text-align: center;
 }

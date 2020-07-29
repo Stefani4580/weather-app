@@ -9,7 +9,7 @@ function DisplayDayData(props) {
     console.log(date)
     return (
       <Card style={{ width: "18rem" }} >
-      <Card.Header> 
+      <Card.Header className="title"> 
         {date.getDay() === 0 && 'Sunday'}
         {date.getDay() === 1 && 'Monday'}
         {date.getDay() === 2 && 'Tuesday'}
