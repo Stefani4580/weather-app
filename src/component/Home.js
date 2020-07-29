@@ -7,10 +7,15 @@ export default class Home extends Component {
         super();
         this.state = {
             day1: [],
+            day1HighLow: [],
             day2: [],
+            day2HighLow: [],
             day3: [],
+            day3HighLow: [],
             day4: [],
-            day5: []
+            day4HighLow: [],
+            day5: [],
+            day5HighLow: [],
         }
     }
 
@@ -29,12 +34,12 @@ export default class Home extends Component {
 //          // get day 2
 //          for (let i = 8; i < 17; i++){
 //              const element = array[i];
-// 8            
+//           
 //          }
 //          // get day 3
 //          for (let i = 17; i < 25; i++){
 //              const element = array[i];
-// 17            
+//           
 //          }
 //          // get day 4
 
@@ -64,12 +69,22 @@ async getWeather(){
       const weatherData = response.data;
 
 
-    //Parse to get data for each dat
+    //Parse to get data for each date
       let day1 = weatherData.list.slice(0,8);
       let day2 = weatherData.list.slice(8,16);
       let day3 = weatherData.list.slice(16,24);
       let day4 = weatherData.list.slice(24,32);
       let day5 = weatherData.list.slice(32,41);
+
+    // Psuedocode
+    // Do this for each day to get the High and the Low
+    // let alltemps =[];
+    // for (let i = 0; i < day1.length; i++) {
+    //     add temp to alltemps
+    // }
+    // Sort alltemps
+    // Set this.state.day1HighLow to [high, low]
+
 
       this.setState((state)=>{
         state.day1 = day1;
@@ -131,6 +146,10 @@ async getWeather(){
         return (
             <div>
                 <DisplayDayData dayData={this.state.day1} />
+                <DisplayDayData dayData={this.state.day2} />
+                <DisplayDayData dayData={this.state.day3} />
+                <DisplayDayData dayData={this.state.day4} />
+                <DisplayDayData dayData={this.state.day5} />
             </div>
         )
     }
