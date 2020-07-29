@@ -6,6 +6,8 @@ import {
   Link
 } from "react-router-dom";
 import Home from "./component/Home";
+import FiveDay from './component/FiveDay'
+import './App.css';
 
 export default function App() {
   return (
@@ -17,7 +19,7 @@ export default function App() {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <Link to="/hourly">Hourly Details</Link>
             </li>
             <li>
               <Link to="/users">Users</Link>
@@ -28,8 +30,8 @@ export default function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/about">
-            <About />
+          <Route path="/hourly">
+            <FiveDay />
           </Route>
           <Route path="/users">
             <Users />

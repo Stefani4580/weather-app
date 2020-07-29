@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+
+.ico {
+  font-size: 50pt;
+}
+
+.title {
+  text-align: center;
+}
+
+.lineup {
+  text-align: center;
+}
+
+.dis {
+  margin-top: 10px;
+}
