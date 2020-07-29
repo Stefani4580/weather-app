@@ -101,6 +101,62 @@ async getWeather(){
         state.day1HighLow = hiLow;
     })
     
+    // Get Day2 High and Low
+    alltemps = [];
+    for (let i = 0; i < day1.length; i++) {
+        const hourlyRecord = day1[i];
+        alltemps.push(hourlyRecord.main.temp);
+    }
+    alltemps.sort(function(a,b){return a-b})
+    hiLow = [];
+    hiLow.push(alltemps.pop());
+    hiLow.push(alltemps[0]);
+    this.setState((state)=>{
+        state.day2HighLow = hiLow;
+    })
+
+    // Get Day3 High and Low
+    alltemps = [];
+    for (let i = 0; i < day1.length; i++) {
+        const hourlyRecord = day1[i];
+        alltemps.push(hourlyRecord.main.temp);
+    }
+    alltemps.sort(function(a,b){return a-b})
+    hiLow = [];
+    hiLow.push(alltemps.pop());
+    hiLow.push(alltemps[0]);
+    this.setState((state)=>{
+        state.day3HighLow = hiLow;
+    })
+
+    // Get Day4 High and Low
+    alltemps = [];
+    for (let i = 0; i < day1.length; i++) {
+        const hourlyRecord = day1[i];
+        alltemps.push(hourlyRecord.main.temp);
+    }
+    alltemps.sort(function(a,b){return a-b})
+    hiLow = [];
+    hiLow.push(alltemps.pop());
+    hiLow.push(alltemps[0]);
+    this.setState((state)=>{
+        state.day4HighLow = hiLow;
+    })
+
+    // Get Day5 High and Low
+    alltemps = [];
+    for (let i = 0; i < day1.length; i++) {
+        const hourlyRecord = day1[i];
+        alltemps.push(hourlyRecord.main.temp);
+    }
+    alltemps.sort(function(a,b){return a-b})
+    hiLow = [];
+    hiLow.push(alltemps.pop());
+    hiLow.push(alltemps[0]);
+    this.setState((state)=>{
+        state.day5HighLow = hiLow;
+    })
+
 
       this.setState((state)=>{
         state.day1 = day1;
@@ -126,17 +182,6 @@ async getWeather(){
 
     componentDidMount = () =>{
         this.getWeather();
-        // const days = this.state.fiveDay[0].map((day)=>{
-        //     return (
-        //         day.map((d) => {
-        //             return (<div>
-        //                 <h1> {day[0].main.temp} </h1>
-        //                 </div>
-        //             )
-        //         })
-        //     )
-        // })
-
     }
 
     render() {
@@ -161,8 +206,6 @@ async getWeather(){
 
         return (
             <div>
-                <h1>Day1 High:  {this.state.day1HighLow[0]}</h1>
-                <h1>Day1 Low:   {this.state.day1HighLow[1]}</h1>
                 <DisplayDayData dayData={this.state.day1} />
                 <DisplayDayData dayData={this.state.day2} />
                 <DisplayDayData dayData={this.state.day3} />
