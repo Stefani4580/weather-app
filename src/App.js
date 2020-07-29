@@ -5,6 +5,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import Home from "./component/Home";
 
 export default function App() {
   return (
@@ -42,9 +43,6 @@ export default function App() {
   );
 }
 
-function Home() {
-  return <h2>Home</h2>;
-}
 
 function About() {
   return <h2>About</h2>;
