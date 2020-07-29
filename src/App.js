@@ -21,9 +21,6 @@ export default function App() {
             <li>
               <Link to="/hourly">Hourly Details</Link>
             </li>
-            <li>
-              <Link to="/users">Users</Link>
-            </li>
           </ul>
         </nav>
 
@@ -32,9 +29,6 @@ export default function App() {
         <Switch>
           <Route path="/hourly">
             <FiveDay />
-          </Route>
-          <Route path="/users">
-            <Users />
           </Route>
           <Route path="/">
             <Home />
@@ -46,10 +40,3 @@ export default function App() {
 }
 
 
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
-}

@@ -4,6 +4,10 @@ import ListGroup from "react-bootstrap/ListGroup";
 import { CardGroup } from "react-bootstrap";
 
 function DisplayDayHighLow(props) {
+
+  const hiLo = props.hiLo;
+  console.log("This day:  ", props.dayData);
+  console.log("This hi/lo:  ", hiLo);
   const dayDataCards = props.dayData.map((day) => {
     let date = new Date(day.dt_txt);
     console.log(date)
@@ -28,7 +32,7 @@ function DisplayDayHighLow(props) {
             </div>
           
             <div className="dis">
-              <strong>{day.main.temp_max}</strong> {day.main.temp_min}
+              <strong>{hiLo[0]}</strong> {hiLo[1]}
             </div>
           </div>
           

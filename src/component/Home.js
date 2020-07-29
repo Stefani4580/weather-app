@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from "axios";
-import DisplayDayData from "./DisplayDayData";
+import DisplayDayHighLow from "./DisplayDayHighLow";
 
 export default class Home extends Component {
     constructor(){
@@ -78,6 +78,14 @@ async getWeather(){
       let day4 = weatherData.list.slice(24,25);
       let day5 = weatherData.list.slice(32,33);
 
+      // This is some trash code so we can calculate Hi and Lo for the day.
+      let dday1 = weatherData.list.slice(0,8);
+      let dday2 = weatherData.list.slice(8,16);
+      let dday3 = weatherData.list.slice(16,24);
+      let dday4 = weatherData.list.slice(24,32);
+      let dday5 = weatherData.list.slice(32,41);
+
+
     // Psuedocode
     // Do this for each day to get the High and the Low
     // let alltemps =[];
@@ -89,8 +97,8 @@ async getWeather(){
 
     // Get Day1 High and Low
     let alltemps = [];
-    for (let i = 0; i < day1.length; i++) {
-        const hourlyRecord = day1[i];
+    for (let i = 0; i < dday1.length; i++) {
+        const hourlyRecord = dday1[i];
         alltemps.push(hourlyRecord.main.temp);
     }
     alltemps.sort(function(a,b){return a-b})
@@ -103,8 +111,8 @@ async getWeather(){
     
     // Get Day2 High and Low
     alltemps = [];
-    for (let i = 0; i < day1.length; i++) {
-        const hourlyRecord = day1[i];
+    for (let i = 0; i < dday2.length; i++) {
+        const hourlyRecord = dday2[i];
         alltemps.push(hourlyRecord.main.temp);
     }
     alltemps.sort(function(a,b){return a-b})
@@ -117,8 +125,8 @@ async getWeather(){
 
     // Get Day3 High and Low
     alltemps = [];
-    for (let i = 0; i < day1.length; i++) {
-        const hourlyRecord = day1[i];
+    for (let i = 0; i < dday3.length; i++) {
+        const hourlyRecord = dday3[i];
         alltemps.push(hourlyRecord.main.temp);
     }
     alltemps.sort(function(a,b){return a-b})
@@ -131,8 +139,8 @@ async getWeather(){
 
     // Get Day4 High and Low
     alltemps = [];
-    for (let i = 0; i < day1.length; i++) {
-        const hourlyRecord = day1[i];
+    for (let i = 0; i < dday4.length; i++) {
+        const hourlyRecord = dday4[i];
         alltemps.push(hourlyRecord.main.temp);
     }
     alltemps.sort(function(a,b){return a-b})
@@ -145,8 +153,8 @@ async getWeather(){
 
     // Get Day5 High and Low
     alltemps = [];
-    for (let i = 0; i < day1.length; i++) {
-        const hourlyRecord = day1[i];
+    for (let i = 0; i < dday5.length; i++) {
+        const hourlyRecord = dday5[i];
         alltemps.push(hourlyRecord.main.temp);
     }
     alltemps.sort(function(a,b){return a-b})
@@ -202,15 +210,16 @@ async getWeather(){
                 )
 
        })
-   
+        console.log("this.state.day1:  ", this.state.day1);
 
         return (
+        
             <div className="five-day">
-                <DisplayDayData dayData={this.state.day1} />
-                <DisplayDayData dayData={this.state.day2} />
-                <DisplayDayData dayData={this.state.day3} />
-                <DisplayDayData dayData={this.state.day4} />
-                <DisplayDayData dayData={this.state.day5} />
+                <DisplayDayHighLow dayData={this.state.day1} hiLo={this.state.day1HighLow} />
+                <DisplayDayHighLow dayData={this.state.day2} hiLo={this.state.day2HighLow} />
+                <DisplayDayHighLow dayData={this.state.day3} hiLo={this.state.day3HighLow} />
+                <DisplayDayHighLow dayData={this.state.day4} hiLo={this.state.day4HighLow} />
+                <DisplayDayHighLow dayData={this.state.day5} hiLo={this.state.day5HighLow} />
             </div>
         )
     }
