@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from "axios";
+import DisplayDayData from "./DisplayDayData";
 
 export default class Home extends Component {
     constructor(){
@@ -116,7 +117,6 @@ async getWeather(){
         fiveDays.push(this.state.day5);
     
         const listOfDays = this.state.day1.map((day)=>{
-            // return(<h5 key={id}>{id}.  {item}</h5>)
             console.log(day);
             return ( 
                 <div>
@@ -130,7 +130,7 @@ async getWeather(){
 
         return (
             <div>
-                {listOfDays}
+                <DisplayDayData dayData={this.state.day1} />
             </div>
         )
     }
