@@ -62,6 +62,8 @@ export default class Home extends Component {
 
 // }
 
+
+// There is a lot of repeating functionality in this code.  I did it because I do not completely understand when I see this code running more than once.  I kept the data individually instead of in an array to combat the seemingly randomness of the multiple calls.  I know refactoring would be MUCH better, but I have no time to experiment.  I just have to get it done.
 async getWeather(){
       try {
           console.log("Here we are");
@@ -82,9 +84,23 @@ async getWeather(){
     // for (let i = 0; i < day1.length; i++) {
     //     add temp to alltemps
     // }
-    // Sort alltemps
+    // Sort alltemps  positiveArray.sort(function(a, b){return a-b});
     // Set this.state.day1HighLow to [high, low]
 
+    // Get Day1 High and Low
+    let alltemps = [];
+    for (let i = 0; i < day1.length; i++) {
+        const hourlyRecord = day1[i];
+        alltemps.push(hourlyRecord.main.temp);
+    }
+    alltemps.sort(function(a,b){return a-b})
+    let hiLow = [];
+    hiLow.push(alltemps.pop());
+    hiLow.push(alltemps[0]);
+    this.setState((state)=>{
+        state.day1HighLow = hiLow;
+    })
+    
 
       this.setState((state)=>{
         state.day1 = day1;
@@ -145,6 +161,8 @@ async getWeather(){
 
         return (
             <div>
+                <h1>Day1 High:  {this.state.day1HighLow[0]}</h1>
+                <h1>Day1 Low:   {this.state.day1HighLow[1]}</h1>
                 <DisplayDayData dayData={this.state.day1} />
                 <DisplayDayData dayData={this.state.day2} />
                 <DisplayDayData dayData={this.state.day3} />
